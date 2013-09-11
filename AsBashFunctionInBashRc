@@ -1,0 +1,10 @@
+
+function OmxPlayer
+{
+   if [ -f AsScript.Bsh ]; then
+      bash AsScript.Bsh "$@"
+   else
+      echo "Err"
+   fi
+}
+
