@@ -2,14 +2,17 @@
 
 FIFO_PATH=/tmp/omxcmd
 mkfifo $FIFO_PATH
+
 omxplayer -o hdmi "$@" <$FIFO_PATH &
 echo -n "">$FIFO_PATH
+
 while read line
 do
-echo -n $line>$FIFO_PATH
-if [ "q" = "$line" ]
-then
-   break
-fi
+  echo -n $line>$FIFO_PATH
+  if [ "q" = "$line" ]
+  then
+    break
+  fi
+  cat KeyBindings.Txt
 done
 
